@@ -5,9 +5,8 @@ func main() {
 	// var cards string = "Ace of Spades"
 	cards := newDeck()
 
-	// append to slice
-	cards = append(cards, "Six of Spades")
+	hand, remainingCards := deal(cards, 5)
 
-	// iterate
-	cards.print()
+  hand.print()
+  remainingCards.print()
 }
