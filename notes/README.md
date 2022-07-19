@@ -1,3 +1,8 @@
+- [Array vs slice](#array-vs-slice)
+- [Type conversion](#type-conversion)
+- [Generate between range](#generate-between-range)
+- [Testing in Go](#testing-in-go)
+
 # Good notes
 
 ## Array vs slice
@@ -31,4 +36,15 @@ func main(){
   UP_TO_NUMBER:=10
 	random := rand.Intn(UP_TO_NUMBER)
 }
+```
+
+## Testing in Go
+
+> please note that function name is test is **PascalCase**
+
+To make a test, create a new file ending in `_test.go`
+To run all tests in a package, run the command
+
+```go
+go test
 ```
