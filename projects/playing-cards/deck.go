@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/fs"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -58,4 +59,21 @@ func (d deck) toString() string {
 func (d deck) saveToFile(filename string) error {
 	PERMISSION_READ_AND_WRITE := fs.FileMode(0666)
 	return ioutil.WriteFile(filename, []byte(d.toString()), PERMISSION_READ_AND_WRITE)
+}
+
+func newDeckFromFile(filename string) deck {
+	byteSlice, error := ioutil.ReadFile(filename)
+
+	if error != nil {
+		// Option #1 - log the error and return new call to newDeck()
+		// [/] Option #2 - log the error and entirely quit the program
+
+		fmt.Println("Error:", error)
+
+		ERROR_CODE := 1
+		os.Exit(ERROR_CODE)
+	}
+
+	s := strings.Split(string(byteSlice), ",")
+  return deck(s)
 }
