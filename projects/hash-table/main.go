@@ -12,7 +12,7 @@ import "fmt"
 // - search
 // - delete
 
-const ARRAY_SIZE = 7
+const ARRAY_SIZE = 2
 
 // HashTable will hold an array
 type HashTable struct {
@@ -124,11 +124,27 @@ func InitHashTable() *HashTable {
 }
 
 func main() {
-	// testHashTable := InitHashTable()
+	hashTable := InitHashTable()
 	randy := "RANDY"
 
-	testBucket := &bucket{}
-	testBucket.insert(randy)
-	testBucket.delete(randy)
-	fmt.Println(testBucket.search(randy))
+	list := []string{
+		"ERIC",
+		"KENNY",
+		"KYLE",
+		"STAN",
+		randy,
+		"BUTTERS",
+		"TOKEN",
+	}
+
+	for _, v := range list {
+		hashTable.Insert(v)
+	}
+
+  // expect true
+	fmt.Println(hashTable.Search(randy))
+
+	hashTable.Delete(randy)
+  // expect false
+	fmt.Println(hashTable.Search(randy))
 }
