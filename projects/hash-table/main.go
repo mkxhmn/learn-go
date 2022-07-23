@@ -37,13 +37,16 @@ func (h *HashTable) Insert(key string) {
 }
 
 // search will take in a key and return true if exist
-func (h *HashTable) Search(key string) {
+func (h *HashTable) Search(key string) bool {
+	index := hash(key)
 
+	return h.array[index].search(key)
 }
 
 // insert will take in a key and delete from the hash table
 func (h *HashTable) Delete(key string) {
-
+	index := hash(key)
+	h.array[index].delete(key)
 }
 
 // bucket structure
