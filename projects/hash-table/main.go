@@ -53,13 +53,17 @@ type bucket struct {
 }
 
 func (b *bucket) insert(k string) {
-	newNode := &bucketNode{key: k}
+	if !b.search(k) {
+		newNode := &bucketNode{key: k}
 
-	// become the current head
-	newNode.next = b.head
+		// become the current head
+		newNode.next = b.head
 
-	// assign a new head
-	b.head = newNode
+		// assign a new head
+		b.head = newNode
+	} else {
+		fmt.Printf("%v already exist\n", k)
+	}
 }
 
 // search will take in a key and return true if exist
@@ -95,9 +99,9 @@ func InitHashTable() *HashTable {
 }
 
 func main() {
-	testHashTable := InitHashTable()
-	fmt.Println(testHashTable)
+	// testHashTable := InitHashTable()
 
 	testBucket := &bucket{}
+	testBucket.insert("RANDY")
 	testBucket.insert("RANDY")
 }
