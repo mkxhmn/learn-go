@@ -66,6 +66,28 @@ func (b *bucket) insert(k string) {
 	}
 }
 
+// delete will take in a key and delete the node if exist
+// linked list will be skipping the currentNode
+// and make the currentNode point to the next node
+func (b *bucket) delete(k string) {
+	previousNode := b.head
+
+	// handle matching key is the head
+	if b.head.key == k {
+		b.head = b.head.next
+
+		return
+	}
+
+	for previousNode != nil {
+		if previousNode.next.key == k {
+			previousNode.next = previousNode.next.next
+		}
+
+		previousNode = previousNode.next
+	}
+}
+
 // search will take in a key and return true if exist
 func (b *bucket) search(k string) bool {
 	currentNode := b.head
@@ -100,8 +122,10 @@ func InitHashTable() *HashTable {
 
 func main() {
 	// testHashTable := InitHashTable()
+	randy := "RANDY"
 
 	testBucket := &bucket{}
-	testBucket.insert("RANDY")
-	testBucket.insert("RANDY")
+	testBucket.insert(randy)
+	testBucket.delete(randy)
+	fmt.Println(testBucket.search(randy))
 }
