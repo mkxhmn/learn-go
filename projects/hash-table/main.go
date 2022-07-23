@@ -62,6 +62,23 @@ func (b *bucket) insert(k string) {
 	b.head = newNode
 }
 
+// search will take in a key and return true if exist
+func (b *bucket) search(k string) bool {
+	currentNode := b.head
+
+	// loop until the current node is empty
+	for currentNode != nil {
+		if currentNode.key == k {
+			return true
+		}
+
+		currentNode = currentNode.next
+
+	}
+
+	return false
+}
+
 // bucketNode structure
 type bucketNode struct {
 	key  string
@@ -81,6 +98,6 @@ func main() {
 	testHashTable := InitHashTable()
 	fmt.Println(testHashTable)
 
-  testBucket := &bucket{}
-  testBucket.insert("RANDY")
+	testBucket := &bucket{}
+	testBucket.insert("RANDY")
 }
