@@ -48,3 +48,13 @@ To run all tests in a package, run the command
 ```go
 go test
 ```
+
+## Pointer
+
+### & value
+
+other way of saying to the compiler, give me access to this memory address of the value this variable is pointing at
+
+### \* point
+
+give me the value this memory address is pointing at
