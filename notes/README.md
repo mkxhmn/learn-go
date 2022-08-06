@@ -51,6 +51,11 @@ go test
 
 ## Pointer
 
+> good things to note here.
+> 
+> - Turn `address` into _values_ with ***address**
+> - Turn `value` into address with **&value**
+
 ### & value
 
 other way of saying to the compiler, give me access to this memory address of the value this variable is pointing at

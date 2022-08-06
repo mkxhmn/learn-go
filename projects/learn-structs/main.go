@@ -17,7 +17,9 @@ func (p person) greet() {
 	fmt.Printf("hello! my name is %v %v. Nice to meet you\n", p.firstName, p.lastName)
 }
 
+// a pointer that points at the person
 func (p *person) updateName(newName string) {
+	// whenever we place *, that pointer is turn into a value
 	(*p).firstName = newName
 }
 
@@ -32,6 +34,8 @@ func main() {
 	}
 
 	jim.greet()
+
+	// turn to memory address or pointer
 	jimPointer := &jim
 	jimPointer.updateName("Jimmy")
 	jim.greet()
