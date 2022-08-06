@@ -29,12 +29,12 @@
 
 ```go
 import (
-  "math/rand"
+"math/rand"
 )
 
 func main(){
-  UP_TO_NUMBER:=10
-	random := rand.Intn(UP_TO_NUMBER)
+UP_TO_NUMBER := 10
+random := rand.Intn(UP_TO_NUMBER)
 }
 ```
 
@@ -48,3 +48,37 @@ To run all tests in a package, run the command
 ```go
 go test
 ```
+
+## Pointer
+
+> good things to note here.
+>
+> - Turn `address` into _values_ with ***address**
+> - Turn `value` into address with **&value**
+
+### & value
+
+other way of saying to the compiler, give me access to this memory address of the value this variable is pointing at
+
+### \* point
+
+give me the value this memory address is pointing at
+
+### Underlying data structure
+
+| value types | reference type |
+|-------------|----------------|
+| int         | slices         |
+| float       | maps           |
+| string      | channels       |
+| bool        | pointers       |
+| structs     | functions      |
+
+#### values types
+
+use pointers to change these things in a function
+
+#### references types
+
+don't worry about pointers with these
+
