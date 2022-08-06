@@ -36,7 +36,6 @@ func main() {
 	jim.greet()
 
 	// turn to memory address or pointer
-	jimPointer := &jim
-	jimPointer.updateName("Jimmy")
+	jim.updateName("Jimmy")
 	jim.greet()
 }
