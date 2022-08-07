@@ -18,12 +18,12 @@ func main() {
 	// delete function
 	delete(colors, "white")
 
-	printMap(colors)
+	printColors(colors)
 
 	fmt.Println(colors)
 }
 
-func printMap(c map[string]string) {
+func printColors(c map[string]string) {
 	// iterate map
 	for color, hex := range c {
 		fmt.Printf("%v with hex code %v\n", color, hex)

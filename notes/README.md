@@ -19,7 +19,7 @@
 ```
 
 | position          | descriptions                  |
-| ----------------- | ----------------------------- |
+|-------------------|-------------------------------|
 | _left hand side_  | specify the type that we want |
 | _right hand side_ | specify the argument          |
 
@@ -78,7 +78,17 @@ give me the value this memory address is pointing at
 
 use pointers to change these things in a function
 
-#### references types
+#### Reference types
 
 don't worry about pointers with these
 
+## Map vs Struct
+
+| Map                                                 | Struct                                                      |
+|-----------------------------------------------------|-------------------------------------------------------------|
+| all keys must be the same type                      |                                                             |
+| use to represent a collection of related properties | use to represent a thing with a lot of different properties |
+| all values must be the same type                    | values can be of different type                             |
+| don't need to know all the keys at compile time     | need to know all the different fields at compile time       |
+| keys are indexed - we can iterate over              | keys don't support indexing                                 |
+| reference type                                      | value type                                                  |
