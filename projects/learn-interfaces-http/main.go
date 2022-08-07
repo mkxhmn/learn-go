@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"log"
 	"net/http"
 	"os"
 )
@@ -14,9 +16,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	bs := make([]byte, 99_999)
-	_, err = resp.Body.Read(bs)
-	if err != nil {
-		fmt.Println(string(bs))
+	if _, err := io.Copy(os.Stdout, resp.Body); err != nil {
+		log.Fatal(err)
 	}
 }

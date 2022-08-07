@@ -98,3 +98,6 @@ don't worry about pointers with these
 - it is not generic types
 - implicit
 - only a contract, it is not a guard for you to write a good code. As long as the type is correct, it will satisfy the type declared in interface
+
+### write interface
+takes information from within our program and send that data out to some form of output or some channel of output or some method of output.
