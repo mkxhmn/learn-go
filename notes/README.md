@@ -92,3 +92,9 @@ don't worry about pointers with these
 | don't need to know all the keys at compile time     | need to know all the different fields at compile time       |
 | keys are indexed - we can iterate over              | keys don't support indexing                                 |
 | reference type                                      | value type                                                  |
+
+
+## Interfaces
+- it is not generic types
+- implicit
+- only a contract, it is not a guard for you to write a good code. As long as the type is correct, it will satisfy the type declared in interface
