@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+type bot interface {
+	getGreeting() string
+}
+
 type englishBot struct{}
 type spanishBot struct{}
 
@@ -13,13 +17,8 @@ func main() {
 	printGreetings(sb)
 }
 
-func printGreetings(eb englishBot) {
-	fmt.Println(eb.getGreeting())
-}
-
-// acknowledge the error for now
-func printGreetings(sb englishBot) {
-	fmt.Println(sb.getGreeting())
+func printGreetings(b bot) {
+	fmt.Println(b.getGreeting())
 }
 
 // this also works, just include the struct/ "empty function"
