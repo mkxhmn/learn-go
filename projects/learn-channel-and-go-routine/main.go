@@ -13,11 +13,14 @@ func main() {
 	}
 
 	for _, link := range links {
-		checkLink(link)
+		// remember we only use 'go' keyword in front of function call.
+		// this is to invoke concurrency
+		go sequentialCheckLink(link)
 	}
 }
 
-func checkLink(link string) {
+// sequential approach
+func sequentialCheckLink(link string) {
 	_, err := http.Get(link)
 
 	if err != nil {
