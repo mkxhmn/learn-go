@@ -31,8 +31,8 @@ func main() {
 	// 	fmt.Println(<-c)
 	// }
 
-	for {
-		go sequentialCheckLink(<-c, c)
+	for l := range c {
+		go sequentialCheckLink(l, c)
 	}
 }
 
