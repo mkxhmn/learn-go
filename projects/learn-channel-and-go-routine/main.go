@@ -21,6 +21,15 @@ func main() {
 	}
 
 	fmt.Println(<-c)
+
+	// remember, fmt.Println(<-c) will block the main thread until it receives a value from the channel
+	// what happen if we print the second value from channel?
+	// surprisingly, it will print the second value from channel
+	// fmt.Println(<-c)
+
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 // sequential approach
