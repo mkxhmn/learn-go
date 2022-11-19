@@ -27,8 +27,12 @@ func main() {
 	// surprisingly, it will print the second value from channel
 	// fmt.Println(<-c)
 
-	for i := 0; i < len(links); i++ {
-		fmt.Println(<-c)
+	// for i := 0; i < len(links); i++ {
+	// 	fmt.Println(<-c)
+	// }
+
+	for {
+		go sequentialCheckLink(<-c, c)
 	}
 }
 
@@ -38,7 +42,7 @@ func sequentialCheckLink(link string, c chan string) {
 
 	if err != nil {
 		fmt.Println(link, "might be down!")
-		c <- "might be down I think"
+		c <- link
 		return
 	}
 
