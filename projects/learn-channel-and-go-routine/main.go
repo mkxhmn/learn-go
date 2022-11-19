@@ -32,9 +32,14 @@ func main() {
 	// 	fmt.Println(<-c)
 	// }
 
+	// the main takeaway here is, never ever try to access the same variable from a different child routine whenever possible
+	// to separate the routine, we pass the channel as a parameter inside our anonymous function
+	// then anonymous function can run separately from the main routine
 	for l := range c {
-		time.Sleep(5 * time.Second)
-		go sequentialCheckLink(l, c)
+		go func(link string) {
+			time.Sleep(5 * time.Second)
+			sequentialCheckLink(link, c)
+		}(l)
 	}
 }
 
