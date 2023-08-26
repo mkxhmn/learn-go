@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/fs"
-	"io/ioutil"
 	"math/rand"
 	"os"
 	"strings"
@@ -60,11 +59,11 @@ func (d deck) toString() string {
 
 func (d deck) saveToFile(filename string) error {
 	PERMISSION_READ_AND_WRITE := fs.FileMode(0666)
-	return ioutil.WriteFile(filename, []byte(d.toString()), PERMISSION_READ_AND_WRITE)
+	return os.WriteFile(filename, []byte(d.toString()), PERMISSION_READ_AND_WRITE)
 }
 
 func newDeckFromFile(filename string) deck {
-	byteSlice, error := ioutil.ReadFile(filename)
+	byteSlice, error := os.ReadFile(filename)
 
 	if error != nil {
 		// Option #1 - log the error and return new call to newDeck()
